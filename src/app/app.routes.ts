@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomePageComponent } from './routers/home-page/home-page.component';
 import { MainLayoutComponent } from './shared/layouts/main-layout/main-layout.component';
-import { TestPageComponent } from './routers/test-page/test-page.component';
 import { NotFoundPageComponent } from './routers/not-found-page/not-found-page.component';
 import { ModelsListComponent } from './features/models/components/models-list/models-list.component';
 import { BrandsListComponent } from './features/brands/components/brands-list/brands-list.component';
@@ -14,6 +13,8 @@ import { CustomerListComponent } from './features/customers/components/customer-
 import { CarsListComponent } from './features/cars/components/cars-list/cars-list.component';
 import { RentalListComponent } from './features/rentals/components/rental-list/rental-list.component';
 import { PipeExampleComponent } from './features/pipes-example/pipe-example/pipe-example.component';
+import { securedRouteGuard } from './shared/guards/securedRoute.guard';
+import { logableRouteGuard } from './shared/guards/logableRoute.guard';
 
 export const routes: Routes = [
   // Home
@@ -59,7 +60,11 @@ export const routes: Routes = [
   },
   {
     path:'createbrand',
-    component:CreateBrandPageComponent
+    component:CreateBrandPageComponent,
+    canActivate: [securedRouteGuard, logableRouteGuard], // Guard
+    data: {
+      requiredUserRole: 'admin',
+    },
   },
   {
     path:'updatebrand',
