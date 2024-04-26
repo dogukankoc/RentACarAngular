@@ -8,11 +8,12 @@ import { errorInterceptor } from './shared/intercepters/error.interceptor';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { timingInterceptor } from './shared/intercepters/timing.interceptor';
+import { loadingOverlayInterceptor } from './shared/intercepters/loading-overlay.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient(withInterceptors([authInterceptor, errorInterceptor, timingInterceptor])), // HttpClient'ı kullanabilmek için ekledik
+    provideHttpClient(withInterceptors([authInterceptor, errorInterceptor, timingInterceptor, loadingOverlayInterceptor])), // HttpClient'ı kullanabilmek için ekledik
     provideAnimations(), 
     provideToastr()
   ],
