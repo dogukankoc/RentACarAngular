@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormControlName, FormGroup, ReactiveFormsModu
 import { ModelsApiService } from '../../services/modelsApi.service';
 import { CreateModelRequest } from '../../models/create-model-request';
 import { ControlErrorHandlerPipe } from '../../../../core/pipes/controlErrorHandler.pipe';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-create-model-form',
@@ -11,7 +12,8 @@ import { ControlErrorHandlerPipe } from '../../../../core/pipes/controlErrorHand
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ControlErrorHandlerPipe
+    ControlErrorHandlerPipe,
+    RouterModule
   ],
   templateUrl: './create-model-form.component.html',
   styleUrl: './create-model-form.component.scss',

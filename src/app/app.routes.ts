@@ -15,6 +15,7 @@ import { RentalListComponent } from './features/rentals/components/rental-list/r
 import { PipeExampleComponent } from './features/pipes-example/pipe-example/pipe-example.component';
 import { securedRouteGuard } from './shared/guards/securedRoute.guard';
 import { logableRouteGuard } from './shared/guards/logableRoute.guard';
+import { unsavedChangesGuard } from './shared/guards/unsaved-changes.guard';
 
 export const routes: Routes = [
   // Home
@@ -54,7 +55,10 @@ export const routes: Routes = [
         path: "rentals", 
         component: RentalListComponent
       },
-
+      {
+        path:'createmodel',
+        component:CreateModelPageComponent, canDeactivate : [unsavedChangesGuard]
+      }
 
     ]
   },
@@ -70,10 +74,10 @@ export const routes: Routes = [
     path:'updatebrand',
     component:UpdateBrandPageComponent
   },
-  {
-    path:'createmodel',
-    component:CreateModelPageComponent
-  },
+  // {
+  //   path:'createmodel',
+  //   component:CreateModelPageComponent, canDeactivate : [unsavedChangesGuard]
+  // },
   {
     path:'updatemodel',
     component:UpdateModelPageComponent
