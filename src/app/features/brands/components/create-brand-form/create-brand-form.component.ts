@@ -6,6 +6,9 @@ import { PostBrandRequest } from '../../models/post-brand-request';
 import { InvokeFunctionExpr } from '@angular/compiler';
 import { IfNotDirective } from '../../../../core/directives/if-not.directive';
 import { ControlErrorHandlerPipe } from '../../../../core/pipes/controlErrorHandler.pipe';
+import { ButtonDirective } from '../../../../core/directives/button.directive';
+import { NoCharacterInputDirective } from '../../../../core/directives/no-character-input.directive';
+import { MultipleDirective } from '../../../../core/directives/multiple.directive';
 
 @Component({
   selector: 'app-create-brand-form',
@@ -14,7 +17,10 @@ import { ControlErrorHandlerPipe } from '../../../../core/pipes/controlErrorHand
     CommonModule,
     ReactiveFormsModule,
     IfNotDirective,
-    ControlErrorHandlerPipe
+    ControlErrorHandlerPipe,
+    ButtonDirective,
+    NoCharacterInputDirective,
+    MultipleDirective
   ],
   templateUrl: './create-brand-form.component.html',
   styleUrl: './create-brand-form.component.scss',
